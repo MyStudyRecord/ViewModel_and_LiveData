@@ -3,6 +3,7 @@ package com.example.viewmodels
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.viewmodels.databinding.ActivityCodingChallengeBinding
 
@@ -15,11 +16,13 @@ class CodingChallengeActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_coding_challenge)
         viewModelFactory = MainActivityViewModelFactory(125)
         viewModel = ViewModelProvider(this,viewModelFactory).get(ChallengeViewModel::class.java)
-        binding.score.text = viewModel.newScore().toString()
+
+        viewModel.scoreData.observe(this, Observer {
+            binding.score.text = it.toString()
+        })
 
         binding.addBtn.setOnClickListener {
             viewModel.addScore(binding.number.text.toString().toInt())
-            binding.score.text = viewModel.newScore().toString()
 
         }
     }
