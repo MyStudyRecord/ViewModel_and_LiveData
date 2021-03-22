@@ -15,7 +15,8 @@ class LiveDataCodingChallengeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_live_data_coding_challenge)
 
-//        viewModel = ViewModelProvider(this,viewModelFactory).get
+//        viewModel = ViewModelProvider..get(LiveDataCodingChallengeViewModel::class.java)
+        binding.lifecycleOwner = this
 
         viewModel.count.observe(this, Observer {
             binding.score.text = it.toString()

@@ -2,33 +2,27 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.viewmodels.twoWayDataBinding22.TwoWayDataBindingViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".LiveDataCodingChallengeActivity">
+        tools:context=".twoWayDataBinding22.TwoWayDemo1">
 
         <TextView
-            android:id="@+id/score"
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="279dp"
-            android:text="@string.valueOf(myViewModel.count)"
-            android:textSize="30dp"
+            android:layout_marginTop="248dp"
+            android:text="@{viewModel.userName}"
+            android:textSize="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/click"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="91dp"
-            android:text="클릭"
-            app:layout_constraintStart_toStartOf="@+id/score"
-            app:layout_constraintTop_toBottomOf="@+id/score" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
